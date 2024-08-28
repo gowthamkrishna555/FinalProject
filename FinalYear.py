@@ -180,7 +180,7 @@ def main():
     elif selected == "Analysis":
         st.title("Water Change Detection Analysis")
 
-        folder_path1 = "/app/Folder1-20240410T051840Z-001/Folder1"
+        folder_path1 = "Folder1-20240410T051840Z-001/Folder1"
         folder_path2 = "/app/Folder2-20240410T051833Z-001/Folder2"
         save_path = "/app/WaterHighlightedImages"
         os.makedirs(save_path, exist_ok=True)
