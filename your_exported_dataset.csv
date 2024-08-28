@@ -1,0 +1,4 @@
+system:index,Label,LandCoverType,Precipitation,Temperature,.geo
+0,1,Forest,100,25,"{""type"":""Point"",""coordinates"":[-87.89,34.567]}"
+1,0,Grassland,50,20,"{""type"":""Point"",""coordinates"":[-86.123,35.678]}"
+2,2,Wetland,80,22,"{""type"":""Point"",""coordinates"":[-85.456,32.123]}"
