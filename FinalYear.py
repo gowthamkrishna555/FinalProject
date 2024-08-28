@@ -182,7 +182,7 @@ def main():
 
         folder_path1 = "Folder1-20240410T051840Z-001/Folder1"
         folder_path2 = "Folder2-20240410T051833Z-001/Folder2"
-        save_path = "/app/WaterHighlightedImages"
+        save_path = "/tmp/WaterHighlightedImages"
         os.makedirs(save_path, exist_ok=True)
 
         image_files1 = [f for f in os.listdir(folder_path1) if f.lower().endswith('.tiff')]
