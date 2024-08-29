@@ -84,7 +84,7 @@ bg_img = '''
 def home():
     st.markdown(bg_img, unsafe_allow_html=True)
     st.title("Welcome to the Water Bodies Mapping and Analysis App")
-   st.markdown("""
+    st.markdown("""
         <style>
         .intro-text {
             color: #FFFF; /* Change this color to your preferred color */
