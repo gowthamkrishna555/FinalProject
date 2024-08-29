@@ -84,7 +84,7 @@ bg_img = '''
 def home():
     st.markdown(bg_img, unsafe_allow_html=True)
     st.title("Welcome to the Water Bodies Mapping and Analysis App")
-    st.markdown("""
+   st.markdown("""
         <style>
         .intro-text {
             color: #FFFF; /* Change this color to your preferred color */
@@ -93,7 +93,16 @@ def home():
             padding: 20px; /* Add padding for readability */
             border-radius: 10px; /* Optional: Add rounded corners */
         }
+        .usage-text {
+            color: #FFFF;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
         </style>
+        
         <div class="intro-text">
         Water scarcity in Karnataka’s coastal regions is a serious problem that is addressed by
         the project “Mapping and Transformation Change Analysis of Water Bodies Using Deep
@@ -105,6 +114,15 @@ def home():
         photos, giving decision-makers access to real-time data. The project intends to promote
         the resilience of coastal communities confronting difficulties related to water scarcity by
         utilizing deep learning, spectral indices, and geospatial data processing.
+        </div>
+        
+        <div class="usage-text">
+        <h3>How to Use This Application:</h3>
+        <ul>
+            <li><strong>Home:</strong> Start by reading the project overview and understanding the context of water scarcity in Karnataka's coastal regions.</li>
+            <li><strong>Map:</strong> Navigate to the Map section to explore different locations in Coastal Regions of Karnataka. Select a location to view a map centered on that area. You can also see various water bodies marked on the map.</li>
+            <li><strong>Analysis:</strong> Go to the Analysis section to perform water change detection analysis. Choose matching images from year 2018 and 2024 and run the analysis to see the rate of change in water bodies. The results will include a visual highlight of areas with changes and a percentage indicating the extent of change.</li>
+        </ul>
         </div>
     """, unsafe_allow_html=True)
 
@@ -188,10 +206,10 @@ def main():
         image_files1 = [f for f in os.listdir(folder_path1) if f.lower().endswith('.tiff')]
         image_files2 = [f"{f.replace('.tiff', '.tiff')}" for f in image_files1]
 
-        image_file1 = st.selectbox("Select image file for folder 1:", image_files1, index=0 if len(image_files1) > 0 else None)
+        image_file1 = st.selectbox("Select image file from 2018 year:", image_files1, index=0 if len(image_files1) > 0 else None)
         
         if image_file1:
-            image_file2 = st.selectbox("Select image file for folder 2:", image_files2, index=0 if len(image_files2) > 0 else None)
+            image_file2 = st.selectbox("Select image file from 2024 year", image_files2, index=0 if len(image_files2) > 0 else None)
             
             if image_file1[:-5] != image_file2[:-5]:
                 st.error("Selected images do not match. Please select matching images.")
@@ -205,8 +223,8 @@ def main():
                 img2 = imageio.imread(image2_path)
 
                 # Display the selected images for testing
-                st.image(img1, caption='Selected Image 1', use_column_width=True)
-                st.image(img2, caption='Selected Image 2', use_column_width=True)
+                st.image(img1, caption='Selected Image from 2018 year', use_column_width=True)
+                st.image(img2, caption='Selected Image from 2024 year', use_column_width=True)
 
                
                 # Calculate water difference after training
